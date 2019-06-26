@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UserTransactions matches snapshot 1`] = `
+<div>
+  <div>
+    <h1>
+      eth transactions
+    </h1>
+  </div>
+</div>
+`;
