@@ -1,22 +1,22 @@
 import React from "react"
-import { pathOr } from "ramda"
 import { Redirect, Route, Switch } from "react-router-dom"
+import { makeStyles } from "@material-ui/core/styles"
 import Paper from "@material-ui/core/Paper"
 import UserTransactions from "app/pages/UserTransactions"
-import Query from "app/common/Query"
-import UserTableList from "./UserTableList"
-import QUERY_USERS from "./query"
+import UsersTableList from "app/pages/UsersTableList"
+
+const useStyles = makeStyles(theme => ({
+  paper: {
+    padding: theme.spacing(2),
+  },
+}))
 
 const Users = () => {
+  const classes = useStyles()
   return (
-    <Paper>
-      <Query query={QUERY_USERS}>
-        {({ data }) => {
-          const users = pathOr([], ["users"], data)
-          return <UserTableList users={users} />
-        }}
-      </Query>
+    <Paper className={classes.paper} square>
       <Switch>
+        <Route exact path="/users" component={UsersTableList} />
         <Route
           exact
           path="/users/:userId"
