@@ -1,15 +1,19 @@
 import gql from "graphql-tag"
 
 export default gql`
-  query User($id: ID!) {
-    user(id: $id, first: 10) {
+  query Transactions($user: ID) {
+    transactions(
+      where: { user: $user }
+      orderBy: timestamp
+      orderDirection: desc
+      first: 10
+    ) {
       id
-      exchangeBalances {
-        id
-      }
-      txs {
-        id
-      }
+      tx
+      timestamp
+      ethAmount
+      tokenAmount
+      fee
     }
   }
 `

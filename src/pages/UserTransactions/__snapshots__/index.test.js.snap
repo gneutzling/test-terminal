@@ -2,10 +2,99 @@
 
 exports[`UserTransactions matches snapshot 1`] = `
 <div>
-  <div>
-    <div>
-      0x0cf0ee63788a0849fe5297f3407f701e122cc023-0x0000000000c90bc353314b6911180ed7e06019a9
-    </div>
-  </div>
+  <table
+    class="MuiTable-root"
+  >
+    <thead
+      class="MuiTableHead-root"
+    >
+      <tr
+        class="MuiTableRow-root MuiTableRow-head"
+      >
+        <th
+          class="MuiTableCell-root MuiTableCell-head"
+          scope="col"
+        >
+          ID
+        </th>
+        <th
+          class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeSmall"
+          scope="col"
+        >
+          TX
+        </th>
+        <th
+          class="MuiTableCell-root MuiTableCell-head"
+          scope="col"
+        >
+          Age
+        </th>
+        <th
+          class="MuiTableCell-root MuiTableCell-head"
+          scope="col"
+        >
+          ETH amount
+        </th>
+        <th
+          class="MuiTableCell-root MuiTableCell-head"
+          scope="col"
+        >
+          Token amount
+        </th>
+        <th
+          class="MuiTableCell-root MuiTableCell-head"
+          scope="col"
+        >
+          Fee
+        </th>
+      </tr>
+    </thead>
+    <tbody
+      class="MuiTableBody-root"
+    >
+      <tr
+        class="MuiTableRow-root"
+      >
+        <td
+          class="MuiTableCell-root MuiTableCell-body"
+        >
+          207503
+        </td>
+        <td
+          class="MuiTableCell-root MuiTableCell-body"
+        >
+          <div
+            style="width: 200px;"
+          >
+            <p
+              class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap"
+            >
+              0x12bd6f147df983c46a5c0a296f86efc42fc110223a6cdf494e9c36a5fd6dc138
+            </p>
+          </div>
+        </td>
+        <td
+          class="MuiTableCell-root MuiTableCell-body"
+        >
+          over 49 years
+        </td>
+        <td
+          class="MuiTableCell-root MuiTableCell-body"
+        >
+          0.999799117276250112
+        </td>
+        <td
+          class="MuiTableCell-root MuiTableCell-body"
+        >
+          1086.866722435225686668
+        </td>
+        <td
+          class="MuiTableCell-root MuiTableCell-body"
+        >
+          0.003008422619687813
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>
 `;

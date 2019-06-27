@@ -2,7 +2,7 @@ import React from "react"
 import { MockedProvider } from "react-apollo/test-utils"
 import wait from "waait"
 import { render } from "app/test-utils"
-import QUERY_USER from "./query"
+import QUERY_TRANSACTIONS from "./query"
 import UserTransactions from "./"
 
 const build = ({ mocks, ...props }) =>
@@ -15,23 +15,24 @@ const build = ({ mocks, ...props }) =>
 const defaultMocks = [
   {
     request: {
-      query: QUERY_USER,
+      query: QUERY_TRANSACTIONS,
       variables: {
-        id: "0x0000000000c90bc353314b6911180ed7e06019a9",
+        user: "0x0000000000c90bc353314b6911180ed7e06019a9",
       },
     },
     result: {
       data: {
-        user: {
-          id: "0x0000000000c90bc353314b6911180ed7e06019a9",
-          exchangeBalances: [
-            {
-              id:
-                "0x0cf0ee63788a0849fe5297f3407f701e122cc023-0x0000000000c90bc353314b6911180ed7e06019a9",
-            },
-          ],
-          txs: [],
-        },
+        transactions: [
+          {
+            ethAmount: "0.999799117276250112",
+            fee: "0.003008422619687813",
+            id: "207503",
+            timestamp: 1561641980,
+            tokenAmount: "1086.866722435225686668",
+            tx:
+              "0x12bd6f147df983c46a5c0a296f86efc42fc110223a6cdf494e9c36a5fd6dc138",
+          },
+        ],
       },
     },
   },
