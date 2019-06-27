@@ -1,10 +1,28 @@
 import React from "react"
+import { pathOr } from "ramda"
+import Query from "app/common/Query"
+import QUERY_USER from "./query"
 
-const UserTransactions = () => {
+const UserTransactions = props => {
   return (
-    <div>
-      <h1>eth transactions</h1>
-    </div>
+    <Query
+      query={QUERY_USER}
+      variables={{
+        id: props.match.params.userId,
+      }}
+    >
+      {({ data }) => {
+        const exchangeBalances = pathOr([], ["user", "exchangeBalances"], data)
+
+        return (
+          <div>
+            {exchangeBalances.map(balance => {
+              return <div key={balance.id}>{balance.id}</div>
+            })}
+          </div>
+        )
+      }}
+    </Query>
   )
 }
 

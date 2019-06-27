@@ -3,9 +3,9 @@
 exports[`UserTransactions matches snapshot 1`] = `
 <div>
   <div>
-    <h1>
-      eth transactions
-    </h1>
+    <div>
+      0x0cf0ee63788a0849fe5297f3407f701e122cc023-0x0000000000c90bc353314b6911180ed7e06019a9
+    </div>
   </div>
 </div>
 `;
