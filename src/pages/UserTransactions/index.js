@@ -9,69 +9,75 @@ import TableRow from "@material-ui/core/TableRow"
 import Typography from "@material-ui/core/Typography"
 import Link from "@material-ui/core/Link"
 import Query from "app/common/Query"
+import PageTitle from "app/common/PageTitle"
 import { getDateDistanceToNow } from "app/utils/getDateDistanceToNow"
 import QUERY_TRANSACTIONS from "./query"
 
 const UserTransactions = props => {
   return (
-    <Query
-      query={QUERY_TRANSACTIONS}
-      variables={{
-        user: props.match.params.userId,
-      }}
-    >
-      {({ data }) => {
-        const transactions = pathOr([], ["transactions"], data)
+    <>
+      <PageTitle>User transactions</PageTitle>
+      <Query
+        query={QUERY_TRANSACTIONS}
+        variables={{
+          user: props.match.params.userId,
+        }}
+      >
+        {({ data }) => {
+          const transactions = pathOr([], ["transactions"], data)
 
-        if (isEmpty(transactions)) {
+          if (isEmpty(transactions)) {
+            return (
+              <div>
+                <Typography>There is no transactions.</Typography>
+                <Typography>
+                  <Link to="/users" component={RouterLink}>
+                    Go back to user list
+                  </Link>
+                </Typography>
+              </div>
+            )
+          }
+
           return (
-            <div>
-              <Typography>There is no transactions.</Typography>
-              <Typography>
-                <Link to="/users" component={RouterLink}>
-                  Go back to user list
-                </Link>
-              </Typography>
-            </div>
+            <Table>
+              <TableHead>
+                <TableRow>
+                  <TableCell>ID</TableCell>
+                  <TableCell size="small">TX</TableCell>
+                  <TableCell>Age</TableCell>
+                  <TableCell>ETH amount</TableCell>
+                  <TableCell>Token amount</TableCell>
+                  <TableCell>Fee</TableCell>
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                {transactions.map(transaction => {
+                  return (
+                    <TableRow key={transaction.id}>
+                      <TableCell>{transaction.id}</TableCell>
+                      <TableCell>
+                        <div style={{ width: 200 }}>
+                          <Typography noWrap={true}>
+                            {transaction.tx}
+                          </Typography>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        {getDateDistanceToNow(transaction.timestamp)}
+                      </TableCell>
+                      <TableCell>{transaction.ethAmount}</TableCell>
+                      <TableCell>{transaction.tokenAmount}</TableCell>
+                      <TableCell>{transaction.fee}</TableCell>
+                    </TableRow>
+                  )
+                })}
+              </TableBody>
+            </Table>
           )
-        }
-
-        return (
-          <Table>
-            <TableHead>
-              <TableRow>
-                <TableCell>ID</TableCell>
-                <TableCell size="small">TX</TableCell>
-                <TableCell>Age</TableCell>
-                <TableCell>ETH amount</TableCell>
-                <TableCell>Token amount</TableCell>
-                <TableCell>Fee</TableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {transactions.map(transaction => {
-                return (
-                  <TableRow key={transaction.id}>
-                    <TableCell>{transaction.id}</TableCell>
-                    <TableCell>
-                      <div style={{ width: 200 }}>
-                        <Typography noWrap={true}>{transaction.tx}</Typography>
-                      </div>
-                    </TableCell>
-                    <TableCell>
-                      {getDateDistanceToNow(transaction.timestamp)}
-                    </TableCell>
-                    <TableCell>{transaction.ethAmount}</TableCell>
-                    <TableCell>{transaction.tokenAmount}</TableCell>
-                    <TableCell>{transaction.fee}</TableCell>
-                  </TableRow>
-                )
-              })}
-            </TableBody>
-          </Table>
-        )
-      }}
-    </Query>
+        }}
+      </Query>
+    </>
   )
 }
 

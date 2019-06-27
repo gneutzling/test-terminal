@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React from "react"
 import { pathOr } from "ramda"
 import { Link as RouterLink } from "react-router-dom"
 import { makeStyles } from "@material-ui/styles"
@@ -10,6 +10,7 @@ import TableCell from "@material-ui/core/TableCell"
 import TableHead from "@material-ui/core/TableHead"
 import TableRow from "@material-ui/core/TableRow"
 import Query from "app/common/Query"
+import PageTitle from "app/common/PageTitle"
 import LoadingIndicator from "app/common/LoadingIndicator"
 import { getETHBalance } from "app/utils/getETHBalance"
 import QUERY_USERS from "./query"
@@ -63,6 +64,7 @@ const UsersTableList = () => {
 
         return (
           <>
+            <PageTitle>Users</PageTitle>
             <Table>
               <TableHead>
                 <TableRow>
