@@ -6,11 +6,40 @@ exports[`Users matches snapshot 1`] = `
     <h1>
       User list
     </h1>
-    <a
-      href="/users/123"
-    >
-      See transactions
-    </a>
+    <div>
+      <div>
+        <p>
+          ID: 
+          0x0000000000000000000000000000000000000000
+        </p>
+        <p>
+          ETH Balance: 
+          0
+        </p>
+        <a
+          href="/users/0x0000000000000000000000000000000000000000"
+        >
+          See transactions
+        </a>
+        <hr />
+      </div>
+      <div>
+        <p>
+          ID: 
+          0x0000000000c90bc353314b6911180ed7e06019a9
+        </p>
+        <p>
+          ETH Balance: 
+          20
+        </p>
+        <a
+          href="/users/0x0000000000c90bc353314b6911180ed7e06019a9"
+        >
+          See transactions
+        </a>
+        <hr />
+      </div>
+    </div>
   </div>
 </div>
 `;
