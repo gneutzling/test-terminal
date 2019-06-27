@@ -1,8 +1,8 @@
 import gql from "graphql-tag"
 
 export default gql`
-  query Users {
-    users(first: 10) {
+  query Users($first: Int, $skip: Int) {
+    users(first: $first, skip: $skip) {
       id
       exchangeBalances {
         id

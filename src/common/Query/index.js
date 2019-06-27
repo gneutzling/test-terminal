@@ -5,7 +5,12 @@ import LoadingIndicator from "app/common/LoadingIndicator"
 
 const REFETCH_STATUS_CODE = 4
 
-const Query = ({ redirectOnError = true, children, ...props }) => {
+const Query = ({
+  redirectOnError = true,
+  children,
+  loader = true,
+  ...props
+}) => {
   return (
     <ApolloQuery {...props} notifyOnNetworkStatusChange>
       {state =>
@@ -15,7 +20,8 @@ const Query = ({ redirectOnError = true, children, ...props }) => {
           <Redirect to="/internal-error" />
         ) : (
           <>
-            {state.loading || state.networkStatus === REFETCH_STATUS_CODE ? (
+            {loader &&
+            (state.loading || state.networkStatus === REFETCH_STATUS_CODE) ? (
               <LoadingIndicator />
             ) : (
               children(state)

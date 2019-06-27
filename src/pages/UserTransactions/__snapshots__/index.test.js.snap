@@ -2,6 +2,11 @@
 
 exports[`UserTransactions matches snapshot 1`] = `
 <div>
+  <h6
+    class="MuiTypography-root MuiTypography-h6"
+  >
+    User transactions
+  </h6>
   <table
     class="MuiTable-root"
   >
