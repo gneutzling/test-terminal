@@ -1,10 +1,11 @@
 import React from "react"
 import { Redirect } from "react-router-dom"
 import { Query as ApolloQuery } from "react-apollo"
+import LoadingIndicator from "app/common/LoadingIndicator"
 
 const REFETCH_STATUS_CODE = 4
 
-function Query({ redirectOnError = true, children, ...props }) {
+const Query = ({ redirectOnError = true, children, ...props }) => {
   return (
     <ApolloQuery {...props} notifyOnNetworkStatusChange>
       {state =>
@@ -15,7 +16,7 @@ function Query({ redirectOnError = true, children, ...props }) {
         ) : (
           <>
             {state.loading || state.networkStatus === REFETCH_STATUS_CODE ? (
-              <p>Loading...</p>
+              <LoadingIndicator />
             ) : (
               children(state)
             )}
