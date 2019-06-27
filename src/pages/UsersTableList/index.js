@@ -1,6 +1,7 @@
 import React from "react"
 import { pathOr } from "ramda"
 import { Link as RouterLink } from "react-router-dom"
+import InfiniteScroll from "react-infinite-scroller"
 import { makeStyles } from "@material-ui/styles"
 import Button from "@material-ui/core/Button"
 import Link from "@material-ui/core/Link"
@@ -15,7 +16,7 @@ import LoadingIndicator from "app/common/LoadingIndicator"
 import { getETHBalance } from "app/utils/getETHBalance"
 import QUERY_USERS from "./query"
 
-import InfiniteScroll from "react-infinite-scroller"
+const ITEMS_PER_PAGE = 10
 
 const useStyles = makeStyles(() => ({
   tableBodyWrapper: {
@@ -23,8 +24,6 @@ const useStyles = makeStyles(() => ({
     overflow: "auto",
   },
 }))
-
-const ITEMS_PER_PAGE = 10
 
 const UsersTableList = () => {
   const classes = useStyles()
@@ -44,22 +43,24 @@ const UsersTableList = () => {
         }
 
         const loadMore = async page => {
-          return await fetchMore({
-            variables: {
-              first: ITEMS_PER_PAGE,
-              skip: ITEMS_PER_PAGE * page,
-            },
-            updateQuery: (previousResult, { fetchMoreResult }) => {
-              if (!fetchMoreResult) {
-                return previousResult
-              }
+          try {
+            await fetchMore({
+              variables: {
+                first: ITEMS_PER_PAGE,
+                skip: ITEMS_PER_PAGE * page,
+              },
+              updateQuery: (previousResult, { fetchMoreResult }) => {
+                if (!fetchMoreResult) {
+                  return previousResult
+                }
 
-              return {
-                ...fetchMoreResult,
-                users: [...previousResult.users, ...fetchMoreResult.users],
-              }
-            },
-          })
+                return {
+                  ...fetchMoreResult,
+                  users: [...previousResult.users, ...fetchMoreResult.users],
+                }
+              },
+            })
+          } catch {}
         }
 
         return (
