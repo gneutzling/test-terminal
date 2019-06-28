@@ -66,7 +66,7 @@ const UsersTableList = () => {
         return (
           <>
             <PageTitle>Users</PageTitle>
-            <Table>
+            <Table size="small">
               <TableHead>
                 <TableRow>
                   <TableCell>User ID</TableCell>
@@ -83,7 +83,7 @@ const UsersTableList = () => {
                 useWindow={false}
                 loader={<LoadingIndicator key={0} />}
               >
-                <Table>
+                <Table size="small">
                   <TableBody>
                     {users.map(user => {
                       return (

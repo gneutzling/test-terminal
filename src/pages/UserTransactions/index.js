@@ -1,6 +1,6 @@
 import React from "react"
-import { isEmpty, pathOr } from "ramda"
 import { Link as RouterLink } from "react-router-dom"
+import { isEmpty, pathOr } from "ramda"
 import Table from "@material-ui/core/Table"
 import TableBody from "@material-ui/core/TableBody"
 import TableCell from "@material-ui/core/TableCell"
@@ -11,6 +11,7 @@ import Link from "@material-ui/core/Link"
 import Query from "app/common/Query"
 import PageTitle from "app/common/PageTitle"
 import { getDateDistanceToNow } from "app/utils/getDateDistanceToNow"
+import TransferModal from "./TransferModal"
 import QUERY_TRANSACTIONS from "./query"
 
 const UserTransactions = props => {
@@ -40,15 +41,15 @@ const UserTransactions = props => {
           }
 
           return (
-            <Table>
+            <Table size="small">
               <TableHead>
                 <TableRow>
                   <TableCell>ID</TableCell>
-                  <TableCell size="small">TX</TableCell>
+                  <TableCell>TX</TableCell>
                   <TableCell>Age</TableCell>
                   <TableCell>ETH amount</TableCell>
                   <TableCell>Token amount</TableCell>
-                  <TableCell>Fee</TableCell>
+                  <TableCell colSpan={2}>Fee</TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
@@ -57,7 +58,7 @@ const UserTransactions = props => {
                     <TableRow key={transaction.id}>
                       <TableCell>{transaction.id}</TableCell>
                       <TableCell>
-                        <div style={{ width: 200 }}>
+                        <div style={{ width: 100 }}>
                           <Typography noWrap={true}>
                             {transaction.tx}
                           </Typography>
@@ -69,6 +70,12 @@ const UserTransactions = props => {
                       <TableCell>{transaction.ethAmount}</TableCell>
                       <TableCell>{transaction.tokenAmount}</TableCell>
                       <TableCell>{transaction.fee}</TableCell>
+                      <TableCell>
+                        <TransferModal
+                          transaction={transaction}
+                          userId={props.match.params.userId}
+                        />
+                      </TableCell>
                     </TableRow>
                   )
                 })}
