@@ -17,7 +17,7 @@ exports[`UserTransactions matches snapshot 1`] = `
         class="MuiTableRow-root MuiTableRow-head"
       >
         <th
-          class="MuiTableCell-root MuiTableCell-head"
+          class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeSmall"
           scope="col"
         >
           ID
@@ -29,25 +29,26 @@ exports[`UserTransactions matches snapshot 1`] = `
           TX
         </th>
         <th
-          class="MuiTableCell-root MuiTableCell-head"
+          class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeSmall"
           scope="col"
         >
           Age
         </th>
         <th
-          class="MuiTableCell-root MuiTableCell-head"
+          class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeSmall"
           scope="col"
         >
           ETH amount
         </th>
         <th
-          class="MuiTableCell-root MuiTableCell-head"
+          class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeSmall"
           scope="col"
         >
           Token amount
         </th>
         <th
-          class="MuiTableCell-root MuiTableCell-head"
+          class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeSmall"
+          colspan="2"
           scope="col"
         >
           Fee
@@ -61,15 +62,15 @@ exports[`UserTransactions matches snapshot 1`] = `
         class="MuiTableRow-root"
       >
         <td
-          class="MuiTableCell-root MuiTableCell-body"
+          class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
         >
           207503
         </td>
         <td
-          class="MuiTableCell-root MuiTableCell-body"
+          class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
         >
           <div
-            style="width: 200px;"
+            style="width: 100px;"
           >
             <p
               class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap"
@@ -79,24 +80,44 @@ exports[`UserTransactions matches snapshot 1`] = `
           </div>
         </td>
         <td
-          class="MuiTableCell-root MuiTableCell-body"
+          class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
         >
           over 49 years
         </td>
         <td
-          class="MuiTableCell-root MuiTableCell-body"
+          class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
         >
           0.999799117276250112
         </td>
         <td
-          class="MuiTableCell-root MuiTableCell-body"
+          class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
         >
           1086.866722435225686668
         </td>
         <td
-          class="MuiTableCell-root MuiTableCell-body"
+          class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
         >
           0.003008422619687813
+        </td>
+        <td
+          class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
+        >
+          <div>
+            <button
+              class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
+              tabindex="0"
+              type="button"
+            >
+              <span
+                class="MuiButton-label"
+              >
+                Transfer ETH
+              </span>
+              <span
+                class="MuiTouchRipple-root"
+              />
+            </button>
+          </div>
         </td>
       </tr>
     </tbody>
